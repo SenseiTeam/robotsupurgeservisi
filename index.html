@@ -548,7 +548,7 @@ header {
       <div class="video-container">
         <div class="video-placeholder">
           <video controls autoplay muted loop>
-              <source src="image/29.mp4" type="video/mp4">
+            <source src="image/29.mp4" type="video/mp4">
           </video>
         </div>
       </div>
@@ -731,7 +731,7 @@ header {
           <div class="location-icon">💬</div>
           <div class="location-details">
             <h3>WhatsApp</h3>
-            <p><a href="https://wa.me/+905549917720" style="color: var(--secondary); text-decoration: none;">Hemen Mesaj Gönderin</a></p>
+            <p><a href="https://wa.me/905549917720" style="color: var(--secondary); text-decoration: none;">Hemen Mesaj Gönderin</a></p>
           </div>
         </div>
         
@@ -746,7 +746,28 @@ header {
       
       <div class="map-container">
         <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3127.8446879817944!2d27.175!
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3127.8!2d27.175!3d38.387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzjCsDIzJzEzLjIiTiAyN8KwMTAnMzAuMCJF!5e0!3m2!1str!2str!4v1234567890"
+          width="600" 
+          height="450" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
 
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" onclick="closeLightbox()">×</button>
+  <div class="lightbox-content" id="lightboxContent"></div>
+</div>
 
+<script>
+// Lightbox functionality
+const galleryItems = document.querySelectorAll('.gallery-item');
+const lightbox = document.getElementById('lightbox');
+const lightboxContent = document.getElementById('lightboxContent');
 
+gallery
