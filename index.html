@@ -3,554 +3,510 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Robot Süpürge Servis - İzmir Buca</title>
-<link rel="icon" type="image/jpeg" href="website/image/icon.jpeg">
-<link rel="shortcut icon" type="image/jpeg" href="website/image/icon.jpeg">
-<link rel="apple-touch-icon" href="website/image/icon.jpeg">
+<title>İzmir Robot Süpürge Servisi</title>
+<link rel="icon" type="image/x-icon" href="image/icon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="image/icon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  --primary: #6366f1;
-  --primary-dark: #4f46e5;
-  --secondary: #06b6d4;
-  --dark: #0f172a;
-  --dark-light: #1e293b;
-  --text: #f1f5f9;
-  --text-muted: #94a3b8;
-  --accent: #8b5cf6;
-  --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --paper: #EAE5D6;
+  --paper-dim: #DFD9C6;
+  --card: #F4F0E4;
+  --ink: #1D2A2E;
+  --ink-soft: #55625F;
+  --line: #C7BFA4;
+  --signal: #E85D2C;
+  --signal-dark: #C24A21;
+  --circuit: #1E6E63;
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'IBM Plex Sans', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
 }
 
+html { scroll-behavior: smooth; }
+
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background: var(--dark);
-  color: var(--text);
+  font-family: var(--font-body);
+  background: var(--paper);
+  color: var(--ink);
   line-height: 1.6;
   overflow-x: hidden;
 }
 
-/* Header */
+a { color: inherit; }
+
+:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+/* ---------- Header ---------- */
 header {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(15, 23, 42, 0.9);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
   z-index: 1000;
-  padding: 1rem 0;
 }
 
 .header-content {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0.9rem 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.logo {
-  font-size: 1.5rem;
-  font-weight: 700;
-  background: var(--gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.contact-header {
-  display: flex;
   gap: 1rem;
 }
 
-.contact-header a {
-  padding: 0.75rem 1.5rem;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
-}
-
-.contact-header a:first-child {
-  background: var(--primary);
-  color: white;
-}
-
-.contact-header a:first-child:hover {
-  background: var(--primary-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
-}
-
-.contact-header a:nth-child(2) {
-  border: 2px solid var(--secondary);
-  color: var(--secondary);
-}
-
-.contact-header a:nth-child(2):hover {
-  background: var(--secondary);
-  color: var(--dark);
-  transform: translateY(-2px);
-}
-
-.contact-header a:nth-child(3) {
-  background: var(--gradient);
-  color: white;
-}
-
-.contact-header a:nth-child(3):hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-}
-
-/* Hero Section */
-.hero {
-  margin-top: 80px;
-  min-height: 90vh;
+.logo {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  text-align: center;
-  padding: 4rem 2rem;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
-  animation: pulse 8s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { transform: scale(1); opacity: 0.5; }
-  50% { transform: scale(1.1); opacity: 0.8; }
-}
-
-.hero h1 {
-  font-size: clamp(2.5rem, 6vw, 5rem);
-  font-weight: 800;
-  background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 1rem;
-  position: relative;
-  z-index: 1;
-}
-
-.hero p {
-  font-size: clamp(1.2rem, 2vw, 1.5rem);
-  color: var(--text-muted);
-  margin-bottom: 2rem;
-  position: relative;
-  z-index: 1;
-}
-
-.cta-button {
-  display: inline-block;
-  padding: 1.2rem 3rem;
-  background: var(--gradient);
-  color: white;
-  text-decoration: none;
-  border-radius: 50px;
+  gap: 0.6rem;
+  font-family: var(--font-display);
   font-weight: 600;
-  font-size: 1.1rem;
-  transition: all 0.3s ease;
+  font-size: 1.05rem;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.logo svg { flex-shrink: 0; }
+
+.contact-header {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.contact-header a {
+  padding: 0.65rem 1.1rem;
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1.5px solid var(--ink);
+  border-radius: 3px;
+  transition: background 0.15s ease, color 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.contact-header a.btn-call {
+  background: var(--signal);
+  border-color: var(--signal);
+  color: #FBF6EC;
+}
+.contact-header a.btn-call:hover { background: var(--signal-dark); border-color: var(--signal-dark); }
+
+.contact-header a.btn-whatsapp {
+  background: transparent;
+  color: var(--circuit);
+  border-color: var(--circuit);
+}
+.contact-header a.btn-whatsapp:hover { background: var(--circuit); color: var(--card); }
+
+.contact-header a.btn-ghost {
+  display: none;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  margin-top: 64px;
+  padding: 4.5rem 1.5rem 3.5rem;
   position: relative;
-  z-index: 1;
-  box-shadow: 0 10px 40px rgba(102, 126, 234, 0.4);
+  background-image:
+    linear-gradient(var(--paper-dim) 1px, transparent 1px),
+    linear-gradient(90deg, var(--paper-dim) 1px, transparent 1px);
+  background-size: 34px 34px;
+  background-position: center top;
 }
 
-.cta-button:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 60px rgba(102, 126, 234, 0.6);
-}
-
-/* Container */
-.container {
-  max-width: 1400px;
+.hero-inner {
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 4rem 2rem;
-}
-
-.section-title {
-  font-size: clamp(2rem, 4vw, 3rem);
-  text-align: center;
-  margin-bottom: 3rem;
-  background: var(--gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  font-weight: 700;
-}
-
-/* Video Section */
-.video-section {
-  background: var(--dark-light);
-  padding: 4rem 0;
-}
-
-.video-content {
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 2rem;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 3rem;
   align-items: center;
 }
 
-.video-container {
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(148, 163, 184, 0.1);
+.hero-copy h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.1rem, 4.3vw, 3.4rem);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  max-width: 12ch;
+  margin-bottom: 1.1rem;
 }
 
-.video-placeholder video {
-  width: 100%;
+.hero-copy p.lede {
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  max-width: 42ch;
+  margin-bottom: 1.8rem;
+}
+
+.ticket {
+  background: var(--card);
+  border: 1.5px solid var(--ink);
+  border-radius: 4px;
+  max-width: 380px;
+  position: relative;
+  animation: stamp-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes stamp-in {
+  from { opacity: 0; transform: scale(0.94) rotate(-1.2deg); }
+  to { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+
+.ticket-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.95rem 1.2rem;
+}
+
+.ticket-row + .ticket-row {
+  border-top: 1px dashed var(--line);
+}
+
+.ticket-label {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+}
+
+.ticket-value {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 1.05rem;
+}
+
+.ticket-value a { text-decoration: none; }
+.ticket-value a:hover { color: var(--signal); }
+
+.ticket-cta {
   display: block;
+  text-align: center;
+  padding: 0.95rem;
+  background: var(--ink);
+  color: var(--paper);
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  border-radius: 0 0 3px 3px;
 }
+.ticket-cta:hover { background: var(--signal); }
 
-.video-image {
-  border-radius: 20px;
+.hero-frame {
+  position: relative;
+  border: 1.5px solid var(--ink);
+  border-radius: 4px;
   overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(148, 163, 184, 0.1);
+  aspect-ratio: 4/3;
+  background: var(--card);
 }
 
-.video-image img {
+.hero-frame img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
 
-/* Gallery */
-.gallery-section {
-  background: var(--dark);
+.corner {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: var(--paper);
+}
+.corner.tl { top: -1px; left: -1px; border-top: 3px solid var(--signal); border-left: 3px solid var(--signal); }
+.corner.br { bottom: -1px; right: -1px; border-bottom: 3px solid var(--signal); border-right: 3px solid var(--signal); }
+
+/* ---------- Container / headings ---------- */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
 }
 
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  margin-bottom: 0.5rem;
+}
+
+.section-sub {
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+  margin-bottom: 2.4rem;
+  max-width: 56ch;
+}
+
+/* ---------- Video section ---------- */
+.video-section {
+  background: var(--paper-dim);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.video-content {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.video-frame, .video-image {
+  border: 1.5px solid var(--ink);
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--card);
+}
+
+.video-frame video { width: 100%; display: block; }
+.video-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* ---------- Gallery ---------- */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1rem;
 }
 
 .gallery-item {
   position: relative;
   aspect-ratio: 1;
-  border-radius: 20px;
+  border: 1.5px solid var(--line);
+  border-radius: 3px;
   overflow: hidden;
   cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  background: var(--dark-light);
-  border: 1px solid rgba(148, 163, 184, 0.1);
+  background: var(--card);
+  transition: border-color 0.2s ease;
 }
 
-.gallery-item::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(139, 92, 246, 0.3));
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  z-index: 1;
-}
-
-.gallery-item:hover::before {
-  opacity: 1;
-}
-
-.gallery-item:hover {
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 20px 60px rgba(99, 102, 241, 0.4);
-  border-color: var(--primary);
-}
+.gallery-item:hover { border-color: var(--signal); }
 
 .gallery-item img,
 .gallery-item video {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.4s ease;
+  filter: grayscale(0.35);
+  transition: filter 0.25s ease;
 }
 
 .gallery-item:hover img,
-.gallery-item:hover video {
-  transform: scale(1.1);
-}
+.gallery-item:hover video { filter: grayscale(0); }
 
 .video-item::after {
-  content: '▶';
+  content: '';
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 3rem;
-  color: white;
-  z-index: 2;
-  opacity: 0.8;
-  transition: all 0.3s ease;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(29, 42, 46, 0.75);
+  border: 1.5px solid var(--paper);
+}
+.video-item::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: calc(50% + 3px);
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: 11px solid var(--paper);
+  z-index: 1;
 }
 
-.video-item:hover::after {
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1.2);
-}
-
-/* Lightbox */
+/* ---------- Lightbox ---------- */
 .lightbox {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.95);
-  backdrop-filter: blur(10px);
+  background: rgba(15, 20, 21, 0.92);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 2000;
   opacity: 0;
   visibility: hidden;
-  transition: all 0.3s ease;
+  transition: opacity 0.2s ease;
 }
-
-.lightbox.active {
-  opacity: 1;
-  visibility: visible;
+.lightbox.active { opacity: 1; visibility: visible; }
+.lightbox-content { max-width: 90vw; max-height: 90vh; }
+.lightbox-content img, .lightbox-content video {
+  max-width: 100%; max-height: 90vh; border-radius: 4px; border: 1px solid var(--line);
 }
-
-.lightbox-content {
-  max-width: 90vw;
-  max-height: 90vh;
-  animation: zoomIn 0.3s ease;
-}
-
-@keyframes zoomIn {
-  from {
-    transform: scale(0.8);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-.lightbox-content img,
-.lightbox-content video {
-  max-width: 100%;
-  max-height: 90vh;
-  border-radius: 10px;
-  box-shadow: 0 25px 100px rgba(0, 0, 0, 0.8);
-}
-
 .lightbox-close {
   position: absolute;
-  top: 2rem;
-  right: 2rem;
-  width: 50px;
-  height: 50px;
-  border: none;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  color: white;
-  font-size: 2rem;
-  border-radius: 50%;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 44px;
+  height: 44px;
+  border: 1.5px solid var(--paper);
+  background: transparent;
+  color: var(--paper);
+  font-size: 1.6rem;
+  border-radius: 3px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
+.lightbox-close:hover { background: var(--signal); border-color: var(--signal); }
 
-.lightbox-close:hover {
-  background: var(--primary);
-  transform: rotate(90deg);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .header-content {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .contact-header {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .contact-header a {
-    text-align: center;
-  }
-
-  .gallery-grid {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1rem;
-  }
-
-  .lightbox-close {
-    top: 1rem;
-    right: 1rem;
-    width: 40px;
-    height: 40px;
-  }
-}
-
-/* Location Section */
-.location-section {
-  background: var(--dark-light);
-  padding: 4rem 0;
-}
+/* ---------- Location ---------- */
+.location-section { background: var(--paper-dim); border-top: 1px solid var(--line); }
 
 .location-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  align-items: center;
+  gap: 2.5rem;
+  align-items: start;
 }
 
-.location-info {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
+.location-info { display: flex; flex-direction: column; }
 
 .location-item {
   display: flex;
-  align-items: flex-start;
-  gap: 1.5rem;
-  padding: 1.5rem;
-  background: rgba(99, 102, 241, 0.05);
-  border: 1px solid rgba(99, 102, 241, 0.2);
-  border-radius: 15px;
-  transition: all 0.3s ease;
+  gap: 1rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--line);
 }
-
-.location-item:hover {
-  background: rgba(99, 102, 241, 0.1);
-  transform: translateX(10px);
-  border-color: var(--primary);
-}
+.location-item:first-child { padding-top: 0; }
 
 .location-icon {
-  font-size: 2rem;
-  color: var(--primary);
-  min-width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(99, 102, 241, 0.1);
-  border-radius: 50%;
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  margin-top: 0.2rem;
+  color: var(--circuit);
 }
 
 .location-details h3 {
-  color: var(--text);
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 0.3rem;
 }
 
 .location-details p {
-  color: var(--text-muted);
-  line-height: 1.8;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
 }
 
-.map-container {
-  border-radius: 20px;
+.location-details a { text-decoration: none; font-family: var(--font-mono); }
+.location-details a:hover { color: var(--signal); }
+
+.map-frame {
+  position: relative;
+  border: 1.5px solid var(--ink);
+  border-radius: 4px;
   overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(148, 163, 184, 0.1);
-  height: 500px;
+  height: 420px;
+}
+.map-frame iframe { width: 100%; height: 100%; border: none; filter: sepia(0.15) saturate(0.9); }
+
+/* ---------- Footer ---------- */
+footer {
+  padding: 2rem 1.5rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  border-top: 1px solid var(--line);
+}
+footer strong { color: var(--ink); font-family: var(--font-mono); font-weight: 500; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-frame { order: -1; aspect-ratio: 16/10; }
+  .video-content { grid-template-columns: 1fr; }
+  .location-content { grid-template-columns: 1fr; }
+  .map-frame { height: 300px; }
 }
 
-.map-container iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
-/* Scroll animations */
-@media (prefers-reduced-motion: no-preference) {
-  .gallery-item {
-    opacity: 0;
-    animation: fadeInUp 0.6s ease forwards;
-  }
-
-  .gallery-item:nth-child(n) {
-    animation-delay: calc(0.05s * var(--i, 1));
-  }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Responsive for location */
-@media (max-width: 968px) {
-  .location-content {
-    grid-template-columns: 1fr;
-  }
-  
-  .map-container {
-    height: 400px;
-  }
-  
-  .video-content {
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 620px) {
+  .header-content { padding: 0.75rem 1rem; }
+  .logo span.wordmark { display: none; }
+  .contact-header a { padding: 0.6rem 0.8rem; font-size: 0.78rem; }
+  .hero { margin-top: 56px; padding: 2.5rem 1rem 2.5rem; background-size: 24px 24px; }
+  .ticket { max-width: 100%; }
+  .container { padding: 2.5rem 1rem; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
+  .lightbox-close { top: 0.9rem; right: 0.9rem; width: 38px; height: 38px; }
 }
 </style>
 </head>
 <body>
+
 <header>
   <div class="header-content">
-    <div class="logo"> Robot Süpürge Servis</div>
+    <div class="logo">
+      <img src="image/icon.ico" alt="Robot Süpürge Atölyesi logo" width="26" height="26" style="border-radius: 3px;">
+      <span class="wordmark">Robot Süpürge Atölyesi</span>
+    </div>
     <div class="contact-header">
-      <a href="tel:+905549917720">📞 0554 991 77 20</a>
-      <a href="https://wa.me/905549917720">💬 WhatsApp</a>
-      <a href="#iletisim">📧 İletişim</a>
+      <a class="btn-call" href="tel:+905549917720">Hemen ara</a>
+      <a class="btn-whatsapp" href="https://wa.me/905549917720">WhatsApp</a>
     </div>
   </div>
 </header>
 
 <section class="hero">
-  <h1>Robot Süpürge Servisi</h1>
-  <p>İzmir Buca'da Güvenilir ve Hızlı Tamir</p>
-  <a href="#iletisim" class="cta-button">İletişime Geçin</a>
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <h1>Robot süpürgeniz mi arızalandı?</h1>
+      <p class="lede">İzmir Buca'daki atölyemizde tüm markalarda robot süpürge arıza tespiti, parça değişimi ve bakım yapıyoruz. Aynı gün teşhis, net fiyat.</p>
+    </div>
+    <div class="hero-frame">
+      <img src="image/7.jpeg" alt="Atölyede robot süpürge tamiri">
+      <span class="corner tl"></span>
+      <span class="corner br"></span>
+    </div>
+  </div>
+  <div class="hero-inner" style="margin-top: 2.2rem; display:block;">
+    <div class="ticket">
+      <div class="ticket-row">
+        <span class="ticket-label">Telefon</span>
+        <span class="ticket-value"><a href="tel:+905549917720">0554 991 77 20</a></span>
+      </div>
+      <div class="ticket-row">
+        <span class="ticket-label">Konum</span>
+        <span class="ticket-value">Buca, İzmir</span>
+      </div>
+      <div class="ticket-row">
+        <span class="ticket-label">Çalışma saatleri</span>
+        <span class="ticket-value">09:00–19:00</span>
+      </div>
+      <a class="ticket-cta" href="https://wa.me/905549917720">WhatsApp'tan arıza fotoğrafı gönder →</a>
+    </div>
+  </div>
 </section>
 
 <section class="video-section">
   <div class="container">
-    <h2 class="section-title">Tanıtım Videosu</h2>
+    <h2 class="section-title">Atölyede bir tamir</h2>
+    <p class="section-sub">Sökme, arıza tespiti ve parça değişiminin nasıl yapıldığını kısa bir kayıtla gösteriyoruz.</p>
     <div class="video-content">
-      <div class="video-container">
-        <div class="video-placeholder">
-          <video controls autoplay muted loop>
-            <source src="image/29.mp4" type="video/mp4">
-          </video>
-        </div>
+      <div class="video-frame">
+        <video controls autoplay muted loop playsinline>
+          <source src="image/29.mp4" type="video/mp4">
+        </video>
       </div>
       <div class="video-image">
         <img src="image/7.jpeg" alt="Robot Süpürge Servisi">
@@ -561,146 +517,117 @@ header {
 
 <section class="gallery-section" id="galeri">
   <div class="container">
-    <h2 class="section-title">Galeri - Çalışmalarımız</h2>
+    <h2 class="section-title">Atölyeden kareler</h2>
+    <p class="section-sub">Tamirini yaptığımız cihazlardan ve süreçten görüntüler.</p>
     <div class="gallery-grid">
-      <!-- Resimler 1-22 -->
-      <div class="gallery-item" data-src="image/1.jpeg" data-type="image" style="--i: 1">
+      <div class="gallery-item" data-src="image/1.jpeg" data-type="image">
         <img src="image/1.jpeg" alt="Robot Süpürge Tamiri 1" loading="lazy">
       </div>
-      <div class="gallery-item" data-src="image/2.jpeg" data-type="image" style="--i: 2">
+      <div class="gallery-item" data-src="image/2.jpeg" data-type="image">
         <img src="image/2.jpeg" alt="Robot Süpürge Tamiri 2" loading="lazy">
       </div>
-      <div class="gallery-item" data-src="image/3.jpeg" data-type="image" style="--i: 3">
+      <div class="gallery-item" data-src="image/3.jpeg" data-type="image">
         <img src="image/3.jpeg" alt="Robot Süpürge Tamiri 3" loading="lazy">
       </div>
-      <div class="gallery-item" data-src="image/4.jpeg" data-type="image" style="--i: 4">
+      <div class="gallery-item" data-src="image/4.jpeg" data-type="image">
         <img src="image/4.jpeg" alt="Robot Süpürge Tamiri 4" loading="lazy">
       </div>
-      <div class="gallery-item" data-src="image/5.jpeg" data-type="image" style="--i: 5">
+      <div class="gallery-item" data-src="image/5.jpeg" data-type="image">
         <img src="image/5.jpeg" alt="Robot Süpürge Tamiri 5" loading="lazy">
       </div>
-      <div class="gallery-item" data-src="image/6.jpeg" data-type="image" style="--i: 6">
+      <div class="gallery-item" data-src="image/6.jpeg" data-type="image">
         <img src="image/6.jpeg" alt="Robot Süpürge Tamiri 6" loading="lazy">
       </div>
-      <div class="gallery-item" data-src="image/7.jpeg" data-type="image" style="--i: 7">
+      <div class="gallery-item" data-src="image/7.jpeg" data-type="image">
         <img src="image/7.jpeg" alt="Robot Süpürge Tamiri 7" loading="lazy">
       </div>
-      <div class="gallery-item" data-src="image/8.jpeg" data-type="image" style="--i: 8">
+      <div class="gallery-item" data-src="image/8.jpeg" data-type="image">
         <img src="image/8.jpeg" alt="Robot Süpürge Tamiri 8" loading="lazy">
       </div>
-      <div class="gallery-item" data-src="image/9.jpeg" data-type="image" style="--i: 9">
+      <div class="gallery-item" data-src="image/9.jpeg" data-type="image">
         <img src="image/9.jpeg" alt="Robot Süpürge Tamiri 9" loading="lazy">
       </div>
-      <div class="gallery-item" data-src="image/10.jpeg" data-type="image" style="--i: 10">
+      <div class="gallery-item" data-src="image/10.jpeg" data-type="image">
         <img src="image/10.jpeg" alt="Robot Süpürge Tamiri 10" loading="lazy">
       </div>
-      <div class="gallery-item" data-src="image/11.jpeg" data-type="image" style="--i: 11">
+      <div class="gallery-item" data-src="image/11.jpeg" data-type="image">
         <img src="image/11.jpeg" alt="Robot Süpürge Tamiri 11" loading="lazy">
       </div>
-      <div class="gallery-item" data-src="image/12.jpeg" data-type="image" style="--i: 12">
+      <div class="gallery-item" data-src="image/12.jpeg" data-type="image">
         <img src="image/12.jpeg" alt="Robot Süpürge Tamiri 12" loading="lazy">
       </div>
-      <div class="gallery-item" data-src="image/13.jpeg" data-type="image" style="--i: 13">
+      <div class="gallery-item" data-src="image/13.jpeg" data-type="image">
         <img src="image/13.jpeg" alt="Robot Süpürge Tamiri 13" loading="lazy">
       </div>
-      <div class="gallery-item" data-src="image/14.jpeg" data-type="image" style="--i: 14">
+      <div class="gallery-item" data-src="image/14.jpeg" data-type="image">
         <img src="image/14.jpeg" alt="Robot Süpürge Tamiri 14" loading="lazy">
       </div>
-      <div class="gallery-item" data-src="image/15.jpeg" data-type="image" style="--i: 15">
+      <div class="gallery-item" data-src="image/15.jpeg" data-type="image">
         <img src="image/15.jpeg" alt="Robot Süpürge Tamiri 15" loading="lazy">
       </div>
-      <div class="gallery-item" data-src="image/16.jpeg" data-type="image" style="--i: 16">
+      <div class="gallery-item" data-src="image/16.jpeg" data-type="image">
         <img src="image/16.jpeg" alt="Robot Süpürge Tamiri 16" loading="lazy">
       </div>
-      <div class="gallery-item" data-src="image/17.jpeg" data-type="image" style="--i: 17">
+      <div class="gallery-item" data-src="image/17.jpeg" data-type="image">
         <img src="image/17.jpeg" alt="Robot Süpürge Tamiri 17" loading="lazy">
       </div>
-      <div class="gallery-item" data-src="image/18.jpeg" data-type="image" style="--i: 18">
+      <div class="gallery-item" data-src="image/18.jpeg" data-type="image">
         <img src="image/18.jpeg" alt="Robot Süpürge Tamiri 18" loading="lazy">
       </div>
-      <div class="gallery-item" data-src="image/19.jpeg" data-type="image" style="--i: 19">
+      <div class="gallery-item" data-src="image/19.jpeg" data-type="image">
         <img src="image/19.jpeg" alt="Robot Süpürge Tamiri 19" loading="lazy">
       </div>
-      <div class="gallery-item" data-src="image/20.jpeg" data-type="image" style="--i: 20">
+      <div class="gallery-item" data-src="image/20.jpeg" data-type="image">
         <img src="image/20.jpeg" alt="Robot Süpürge Tamiri 20" loading="lazy">
       </div>
-      <div class="gallery-item" data-src="image/21.jpeg" data-type="image" style="--i: 21">
+      <div class="gallery-item" data-src="image/21.jpeg" data-type="image">
         <img src="image/21.jpeg" alt="Robot Süpürge Tamiri 21" loading="lazy">
       </div>
-      <div class="gallery-item" data-src="image/22.jpeg" data-type="image" style="--i: 22">
+      <div class="gallery-item" data-src="image/22.jpeg" data-type="image">
         <img src="image/22.jpeg" alt="Robot Süpürge Tamiri 22" loading="lazy">
       </div>
-      
-      <!-- Videolar 23-40 -->
-      <div class="gallery-item video-item" data-src="image/23.mp4" data-type="video" style="--i: 23">
-        <video muted preload="metadata">
-          <source src="image/24.mp4" type="video/mp4">
-        </video>
-     
-      <div class="gallery-item video-item" data-src="image/25.mp4" data-type="video" style="--i: 25">
-        <video muted preload="metadata">
-          <source src="image/25.mp4" type="video/mp4">
-        </video>
+
+      <div class="gallery-item video-item" data-src="image/24.mp4" data-type="video">
+        <video muted preload="metadata"><source src="image/24.mp4" type="video/mp4"></video>
       </div>
-      <div class="gallery-item video-item" data-src="image/26.mp4" data-type="video" style="--i: 26">
-        <video muted preload="metadata">
-          <source src="image/26.mp4" type="video/mp4">
-        </video>
-     
-      <div class="gallery-item video-item" data-src="image/28.mp4" data-type="video" style="--i: 28">
-        <video muted preload="metadata">
-          <source src="image/28.mp4" type="video/mp4">
-        </video>
+      <div class="gallery-item video-item" data-src="image/25.mp4" data-type="video">
+        <video muted preload="metadata"><source src="image/25.mp4" type="video/mp4"></video>
       </div>
-      <div class="gallery-item video-item" data-src="image/29.mp4" data-type="video" style="--i: 29">
-        <video muted preload="metadata">
-          <source src="image/29.mp4" type="video/mp4">
-        </video>
+      <div class="gallery-item video-item" data-src="image/26.mp4" data-type="video">
+        <video muted preload="metadata"><source src="image/26.mp4" type="video/mp4"></video>
       </div>
-      <div class="gallery-item video-item" data-src="image/30.mp4" data-type="video" style="--i: 30">
-        <video muted preload="metadata">
-          <source src="image/30.mp4" type="video/mp4">
-        </video>
+      <div class="gallery-item video-item" data-src="image/28.mp4" data-type="video">
+        <video muted preload="metadata"><source src="image/28.mp4" type="video/mp4"></video>
       </div>
-      <div class="gallery-item video-item" data-src="image/31.mp4" data-type="video" style="--i: 31">
-        <video muted preload="metadata">
-          <source src="image/31.mp4" type="video/mp4">
-        </video>
+      <div class="gallery-item video-item" data-src="image/29.mp4" data-type="video">
+        <video muted preload="metadata"><source src="image/29.mp4" type="video/mp4"></video>
       </div>
-      <div class="gallery-item video-item" data-src="image/32.mp4" data-type="video" style="--i: 32">
-        <video muted preload="metadata">
-          <source src="image/32.mp4" type="video/mp4">
-        </video>
-    
-      <div class="gallery-item video-item" data-src="image/34.mp4" data-type="video" style="--i: 34">
-        <video muted preload="metadata">
-          <source src="image/34.mp4" type="video/mp4">
-        </video>
+      <div class="gallery-item video-item" data-src="image/30.mp4" data-type="video">
+        <video muted preload="metadata"><source src="image/30.mp4" type="video/mp4"></video>
       </div>
-      <div class="gallery-item video-item" data-src="image/35.mp4" data-type="video" style="--i: 35">
-        <video muted preload="metadata">
-          <source src="image/35.mp4" type="video/mp4">
-        </video>
+      <div class="gallery-item video-item" data-src="image/31.mp4" data-type="video">
+        <video muted preload="metadata"><source src="image/31.mp4" type="video/mp4"></video>
       </div>
-      <div class="gallery-item video-item" data-src="image/36.mp4" data-type="video" style="--i: 36">
-        <video muted preload="metadata">
-          <source src="image/36.mp4" type="video/mp4">
-        </video>
-     
-      <div class="gallery-item video-item" data-src="image/38.mp4" data-type="video" style="--i: 38">
-        <video muted preload="metadata">
-          <source src="image/38.mp4" type="video/mp4">
-        </video>
+      <div class="gallery-item video-item" data-src="image/32.mp4" data-type="video">
+        <video muted preload="metadata"><source src="image/32.mp4" type="video/mp4"></video>
       </div>
-      <div class="gallery-item video-item" data-src="image/39.mp4" data-type="video" style="--i: 39">
-        <video muted preload="metadata">
-          <source src="image/39.mp4" type="video/mp4">
-        </video>
+      <div class="gallery-item video-item" data-src="image/34.mp4" data-type="video">
+        <video muted preload="metadata"><source src="image/34.mp4" type="video/mp4"></video>
       </div>
-      <div class="gallery-item video-item" data-src="image/40.mp4" data-type="video" style="--i: 40">
-        <video muted preload="metadata">
-          <source src="image/40.mp4" type="video/mp4">
-        </video>
+      <div class="gallery-item video-item" data-src="image/35.mp4" data-type="video">
+        <video muted preload="metadata"><source src="image/35.mp4" type="video/mp4"></video>
+      </div>
+      <div class="gallery-item video-item" data-src="image/36.mp4" data-type="video">
+        <video muted preload="metadata"><source src="image/36.mp4" type="video/mp4"></video>
+      </div>
+      <div class="gallery-item video-item" data-src="image/38.mp4" data-type="video">
+        <video muted preload="metadata"><source src="image/38.mp4" type="video/mp4"></video>
+      </div>
+      <div class="gallery-item video-item" data-src="image/39.mp4" data-type="video">
+        <video muted preload="metadata"><source src="image/39.mp4" type="video/mp4"></video>
+      </div>
+      <div class="gallery-item video-item" data-src="image/40.mp4" data-type="video">
+        <video muted preload="metadata"><source src="image/40.mp4" type="video/mp4"></video>
       </div>
     </div>
   </div>
@@ -708,50 +635,43 @@ header {
 
 <section class="location-section" id="iletisim">
   <div class="container">
-    <h2 class="section-title">Adresimiz</h2>
+    <h2 class="section-title">Bize ulaşın</h2>
+    <p class="section-sub">Arızayı anlatın, gerekirse fotoğraf gönderin — size en yakın uygun saati birlikte belirleyelim.</p>
     <div class="location-content">
       <div class="location-info">
         <div class="location-item">
-          <div class="location-icon">📍</div>
+          <svg class="location-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 21C12 21 5 14.5 5 9.5C5 5.9 8.1 3 12 3C15.9 3 19 5.9 19 9.5C19 14.5 12 21 12 21Z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="9.5" r="2.3" stroke="currentColor" stroke-width="1.6"/></svg>
           <div class="location-details">
             <h3>Adres</h3>
-            <p>Hürriyet Mahallesi, Mehmet Akif Cad. No:61/B<br>Buca, İzmir</p>
+            <p>Hürriyet Mahallesi, Mehmet Akif Cad. No:61/B, Buca, İzmir</p>
           </div>
         </div>
-        
         <div class="location-item">
-          <div class="location-icon">📞</div>
+          <svg class="location-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 3H9L11 8L8.5 9.5C9.5 11.7 11.3 13.5 13.5 14.5L15 12L20 14V17C20 18.7 18.7 20 17 20C10.4 19.6 4.4 13.6 4 7C4 5.3 5.3 3 6 3Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
           <div class="location-details">
             <h3>Telefon</h3>
-            <p><a href="tel:+905549917720" style="color: var(--secondary); text-decoration: none;">0554 991 77 20</a></p>
+            <p><a href="tel:+905549917720">0554 991 77 20</a></p>
           </div>
         </div>
-        
         <div class="location-item">
-          <div class="location-icon">💬</div>
+          <svg class="location-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 20L5.2 16.2C4.4 14.9 4 13.5 4 12C4 7.6 7.8 4 12.5 4C17.2 4 21 7.6 21 12C21 16.4 17.2 20 12.5 20C11 20 9.6 19.6 8.4 18.9L4 20Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
           <div class="location-details">
             <h3>WhatsApp</h3>
-            <p><a href="https://wa.me/905549917720" style="color: var(--secondary); text-decoration: none;">Hemen Mesaj Gönderin</a></p>
+            <p><a href="https://wa.me/905549917720">Arıza fotoğrafı gönderin</a></p>
           </div>
         </div>
-        
         <div class="location-item">
-          <div class="location-icon">🕐</div>
+          <svg class="location-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.6"/><path d="M12 7.5V12L15 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
           <div class="location-details">
-            <h3>Çalışma Saatleri</h3>
-            <p>Pazartesi - Cumartesi: 09:00 - 19:00<br>Pazar: Randevulu</p>
+            <h3>Çalışma saatleri</h3>
+            <p>Pazartesi–Cumartesi 09:00–19:00, Pazar randevu ile</p>
           </div>
         </div>
       </div>
-      
-      <div class="map-container">
-        <iframe 
+      <div class="map-frame">
+        <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3127.8!2d27.175!3d38.387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzjCsDIzJzEzLjIiTiAyN8KwMTAnMzAuMCJF!5e0!3m2!1str!2str!4v1234567890"
-          width="600" 
-          height="450" 
-          style="border:0;" 
-          allowfullscreen="" 
-          loading="lazy" 
+          width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
           referrerpolicy="no-referrer-when-downgrade">
         </iframe>
       </div>
@@ -759,15 +679,44 @@ header {
   </div>
 </section>
 
+<footer>
+  Robot Süpürge Atölyesi · <strong>0554 991 77 20</strong> · Buca, İzmir
+</footer>
+
 <div class="lightbox" id="lightbox">
   <button class="lightbox-close" onclick="closeLightbox()">×</button>
   <div class="lightbox-content" id="lightboxContent"></div>
 </div>
 
 <script>
-// Lightbox functionality
 const galleryItems = document.querySelectorAll('.gallery-item');
 const lightbox = document.getElementById('lightbox');
 const lightboxContent = document.getElementById('lightboxContent');
 
-gallery
+galleryItems.forEach(item => {
+  item.addEventListener('click', () => {
+    const src = item.getAttribute('data-src');
+    const type = item.getAttribute('data-type');
+    lightboxContent.innerHTML = type === 'video'
+      ? `<video src="${src}" controls autoplay></video>`
+      : `<img src="${src}" alt="">`;
+    lightbox.classList.add('active');
+  });
+});
+
+function closeLightbox() {
+  lightbox.classList.remove('active');
+  lightboxContent.innerHTML = '';
+}
+
+lightbox.addEventListener('click', (e) => {
+  if (e.target === lightbox) closeLightbox();
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeLightbox();
+});
+</script>
+
+</body>
+</html>
